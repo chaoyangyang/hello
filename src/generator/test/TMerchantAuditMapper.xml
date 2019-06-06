@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="test.TMerchantAuditMapper" >
+  <resultMap id="BaseResultMap" type="test.TMerchantAudit" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="RQ" property="rq" jdbcType="TIMESTAMP" />
+    <result column="MERCHANT_NUM" property="merchantNum" jdbcType="VARCHAR" />
+    <result column="AUDIT_TYPE" property="auditType" jdbcType="VARCHAR" />
+    <result column="BANK_CARD_NUM" property="bankCardNum" jdbcType="VARCHAR" />
+    <result column="TRANS_TYPE" property="transType" jdbcType="VARCHAR" />
+    <result column="AUDIT_TIME" property="auditTime" jdbcType="VARCHAR" />
+    <result column="MODIFY_TIME" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="STATUS" property="status" jdbcType="VARCHAR" />
+    <result column="NOTICE_URL" property="noticeUrl" jdbcType="VARCHAR" />
+    <result column="MERCHANT_TYPE" property="merchantType" jdbcType="VARCHAR" />
+    <result column="PLATFORM_NUM" property="platformNum" jdbcType="VARCHAR" />
+    <result column="PLATFORM_NAME" property="platformName" jdbcType="VARCHAR" />
+    <result column="MERCHANT_NAME" property="merchantName" jdbcType="VARCHAR" />
+    <result column="BANK_CODE" property="bankCode" jdbcType="VARCHAR" />
+    <result column="BANK_NO" property="bankNo" jdbcType="VARCHAR" />
+    <result column="MERCHANT_AREA" property="merchantArea" jdbcType="VARCHAR" />
+    <result column="OPEN_BANK" property="openBank" jdbcType="VARCHAR" />
+    <result column="BANK_CARD_TYPE" property="bankCardType" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, RQ, MERCHANT_NUM, AUDIT_TYPE, BANK_CARD_NUM, TRANS_TYPE, AUDIT_TIME, MODIFY_TIME, 
+    STATUS, NOTICE_URL, MERCHANT_TYPE, PLATFORM_NUM, PLATFORM_NAME, MERCHANT_NAME, BANK_CODE, 
+    BANK_NO, MERCHANT_AREA, OPEN_BANK, BANK_CARD_TYPE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_MERCHANT_AUDIT
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from T_MERCHANT_AUDIT
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="test.TMerchantAudit" >
+    insert into T_MERCHANT_AUDIT (ID, RQ, MERCHANT_NUM, 
+      AUDIT_TYPE, BANK_CARD_NUM, TRANS_TYPE, 
+      AUDIT_TIME, MODIFY_TIME, STATUS, 
+      NOTICE_URL, MERCHANT_TYPE, PLATFORM_NUM, 
+      PLATFORM_NAME, MERCHANT_NAME, BANK_CODE, 
+      BANK_NO, MERCHANT_AREA, OPEN_BANK, 
+      BANK_CARD_TYPE)
+    values (#{id,jdbcType=DECIMAL}, #{rq,jdbcType=TIMESTAMP}, #{merchantNum,jdbcType=VARCHAR}, 
+      #{auditType,jdbcType=VARCHAR}, #{bankCardNum,jdbcType=VARCHAR}, #{transType,jdbcType=VARCHAR}, 
+      #{auditTime,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, 
+      #{noticeUrl,jdbcType=VARCHAR}, #{merchantType,jdbcType=VARCHAR}, #{platformNum,jdbcType=VARCHAR}, 
+      #{platformName,jdbcType=VARCHAR}, #{merchantName,jdbcType=VARCHAR}, #{bankCode,jdbcType=VARCHAR}, 
+      #{bankNo,jdbcType=VARCHAR}, #{merchantArea,jdbcType=VARCHAR}, #{openBank,jdbcType=VARCHAR}, 
+      #{bankCardType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="test.TMerchantAudit" >
+    insert into T_MERCHANT_AUDIT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="rq != null" >
+        RQ,
+      </if>
+      <if test="merchantNum != null" >
+        MERCHANT_NUM,
+      </if>
+      <if test="auditType != null" >
+        AUDIT_TYPE,
+      </if>
+      <if test="bankCardNum != null" >
+        BANK_CARD_NUM,
+      </if>
+      <if test="transType != null" >
+        TRANS_TYPE,
+      </if>
+      <if test="auditTime != null" >
+        AUDIT_TIME,
+      </if>
+      <if test="modifyTime != null" >
+        MODIFY_TIME,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="noticeUrl != null" >
+        NOTICE_URL,
+      </if>
+      <if test="merchantType != null" >
+        MERCHANT_TYPE,
+      </if>
+      <if test="platformNum != null" >
+        PLATFORM_NUM,
+      </if>
+      <if test="platformName != null" >
+        PLATFORM_NAME,
+      </if>
+      <if test="merchantName != null" >
+        MERCHANT_NAME,
+      </if>
+      <if test="bankCode != null" >
+        BANK_CODE,
+      </if>
+      <if test="bankNo != null" >
+        BANK_NO,
+      </if>
+      <if test="merchantArea != null" >
+        MERCHANT_AREA,
+      </if>
+      <if test="openBank != null" >
+        OPEN_BANK,
+      </if>
+      <if test="bankCardType != null" >
+        BANK_CARD_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="rq != null" >
+        #{rq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="merchantNum != null" >
+        #{merchantNum,jdbcType=VARCHAR},
+      </if>
+      <if test="auditType != null" >
+        #{auditType,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardNum != null" >
+        #{bankCardNum,jdbcType=VARCHAR},
+      </if>
+      <if test="transType != null" >
+        #{transType,jdbcType=VARCHAR},
+      </if>
+      <if test="auditTime != null" >
+        #{auditTime,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeUrl != null" >
+        #{noticeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantType != null" >
+        #{merchantType,jdbcType=VARCHAR},
+      </if>
+      <if test="platformNum != null" >
+        #{platformNum,jdbcType=VARCHAR},
+      </if>
+      <if test="platformName != null" >
+        #{platformName,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantName != null" >
+        #{merchantName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCode != null" >
+        #{bankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankNo != null" >
+        #{bankNo,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantArea != null" >
+        #{merchantArea,jdbcType=VARCHAR},
+      </if>
+      <if test="openBank != null" >
+        #{openBank,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardType != null" >
+        #{bankCardType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="test.TMerchantAudit" >
+    update T_MERCHANT_AUDIT
+    <set >
+      <if test="rq != null" >
+        RQ = #{rq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="merchantNum != null" >
+        MERCHANT_NUM = #{merchantNum,jdbcType=VARCHAR},
+      </if>
+      <if test="auditType != null" >
+        AUDIT_TYPE = #{auditType,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardNum != null" >
+        BANK_CARD_NUM = #{bankCardNum,jdbcType=VARCHAR},
+      </if>
+      <if test="transType != null" >
+        TRANS_TYPE = #{transType,jdbcType=VARCHAR},
+      </if>
+      <if test="auditTime != null" >
+        AUDIT_TIME = #{auditTime,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeUrl != null" >
+        NOTICE_URL = #{noticeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantType != null" >
+        MERCHANT_TYPE = #{merchantType,jdbcType=VARCHAR},
+      </if>
+      <if test="platformNum != null" >
+        PLATFORM_NUM = #{platformNum,jdbcType=VARCHAR},
+      </if>
+      <if test="platformName != null" >
+        PLATFORM_NAME = #{platformName,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantName != null" >
+        MERCHANT_NAME = #{merchantName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCode != null" >
+        BANK_CODE = #{bankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankNo != null" >
+        BANK_NO = #{bankNo,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantArea != null" >
+        MERCHANT_AREA = #{merchantArea,jdbcType=VARCHAR},
+      </if>
+      <if test="openBank != null" >
+        OPEN_BANK = #{openBank,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardType != null" >
+        BANK_CARD_TYPE = #{bankCardType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="test.TMerchantAudit" >
+    update T_MERCHANT_AUDIT
+    set RQ = #{rq,jdbcType=TIMESTAMP},
+      MERCHANT_NUM = #{merchantNum,jdbcType=VARCHAR},
+      AUDIT_TYPE = #{auditType,jdbcType=VARCHAR},
+      BANK_CARD_NUM = #{bankCardNum,jdbcType=VARCHAR},
+      TRANS_TYPE = #{transType,jdbcType=VARCHAR},
+      AUDIT_TIME = #{auditTime,jdbcType=VARCHAR},
+      MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP},
+      STATUS = #{status,jdbcType=VARCHAR},
+      NOTICE_URL = #{noticeUrl,jdbcType=VARCHAR},
+      MERCHANT_TYPE = #{merchantType,jdbcType=VARCHAR},
+      PLATFORM_NUM = #{platformNum,jdbcType=VARCHAR},
+      PLATFORM_NAME = #{platformName,jdbcType=VARCHAR},
+      MERCHANT_NAME = #{merchantName,jdbcType=VARCHAR},
+      BANK_CODE = #{bankCode,jdbcType=VARCHAR},
+      BANK_NO = #{bankNo,jdbcType=VARCHAR},
+      MERCHANT_AREA = #{merchantArea,jdbcType=VARCHAR},
+      OPEN_BANK = #{openBank,jdbcType=VARCHAR},
+      BANK_CARD_TYPE = #{bankCardType,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

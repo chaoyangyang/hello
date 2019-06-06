@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.eastpay.service.reportform.mapper.ReconciliationInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.eastpay.model.ReconciliationInfo" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="RQ" property="rq" jdbcType="TIMESTAMP" />
+    <result column="TRAN_NUM" property="tranNum" jdbcType="DECIMAL" />
+    <result column="TRAN_AMOUNT" property="tranAmount" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, RQ, TRAN_NUM, TRAN_AMOUNT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
+    select 
+    <include refid="Base_Column_List" />
+    from RECONCILIATION_INFO
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from RECONCILIATION_INFO
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.eastpay.model.ReconciliationInfo" >
+    insert into RECONCILIATION_INFO (ID, RQ, TRAN_NUM, 
+      TRAN_AMOUNT)
+    values (SEQ_RECONCILIATION_INFO.Nextval, #{rq,jdbcType=TIMESTAMP}, #{tranNum,jdbcType=DECIMAL}, 
+      #{tranAmount,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.eastpay.model.ReconciliationInfo" >
+    insert into RECONCILIATION_INFO
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="rq != null" >
+        RQ,
+      </if>
+      <if test="tranNum != null" >
+        TRAN_NUM,
+      </if>
+      <if test="tranAmount != null" >
+        TRAN_AMOUNT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="rq != null" >
+        #{rq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tranNum != null" >
+        #{tranNum,jdbcType=DECIMAL},
+      </if>
+      <if test="tranAmount != null" >
+        #{tranAmount,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.eastpay.model.ReconciliationInfo" >
+    update RECONCILIATION_INFO
+    <set >
+      <if test="rq != null" >
+        RQ = #{rq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tranNum != null" >
+        TRAN_NUM = #{tranNum,jdbcType=DECIMAL},
+      </if>
+      <if test="tranAmount != null" >
+        TRAN_AMOUNT = #{tranAmount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.eastpay.model.ReconciliationInfo" >
+    update RECONCILIATION_INFO
+    set RQ = #{rq,jdbcType=TIMESTAMP},
+      TRAN_NUM = #{tranNum,jdbcType=DECIMAL},
+      TRAN_AMOUNT = #{tranAmount,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>
