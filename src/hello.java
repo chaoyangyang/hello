@@ -12,5 +12,6 @@ public class hello {
         System.out.println("aaaaaaaa");
         system.out.println("你好！")
         System.out.println("解决冲突！");
+        System.out.println("小测试。。。");
     }
 }
