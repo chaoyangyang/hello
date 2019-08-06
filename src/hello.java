@@ -10,5 +10,6 @@ public class hello {
         System.out.println("ccccccccccc");
         System.out.println("abcd");
         System.out.println("aaaaaaaa");
+        system.out.println("你好！")
     }
 }
