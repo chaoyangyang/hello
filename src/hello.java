@@ -14,5 +14,6 @@ public class hello {
         System.out.println("解决冲突！");
         System.out.println("先commit后pull");
         System.out.println("小测试。。。");
+        System.out.println("1111111111111111111111111");
     }
 }
