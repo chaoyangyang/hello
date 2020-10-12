@@ -16,5 +16,6 @@ public class hello {
         System.out.println("小测试。。。");
         System.out.println("1111111111111111111111111");
         System.out.println(22222222222);
+        System.out.println("nihao");
     }
 }
