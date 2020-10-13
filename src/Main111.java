@@ -12,6 +12,7 @@ public class Main {
         System.out.println(format.format(date));
         System.out.println(format.format(date).substring(0,8));
         System.out.println(format.format(date).substring(8,10));
+        System.out.println(1111);
     }
 
 }
