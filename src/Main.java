@@ -27,6 +27,10 @@ public class Main {
         System.out.println("ceshi2222");
         System.out.println("ceshi2222");
         System.out.println("ceshi2222");
+        System.out.println("5555555");
+        System.out.println("66666666");
+        System.out.println("cehsi6");
+        System.out.println("cehsi6");
 
     }
 
