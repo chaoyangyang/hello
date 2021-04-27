@@ -26,5 +26,7 @@ public class hello {
         System.out.println(555555555555555);
         System.out.println(66666666666);
         System.out.println(7777777);
+        System.out.println("cehsi6");
+        System.out.println("cehsi6");
     }
 }
