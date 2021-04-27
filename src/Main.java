@@ -22,6 +22,8 @@ public class Main {
 
 
         System.out.println("ceshi2222");
+        String aa="1234567890123";
+        System.out.println(aa.substring(0,2));
 
     }
 
