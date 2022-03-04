@@ -28,5 +28,6 @@ public class hello {
         System.out.println(7777777);
         System.out.println("cehsi6");
         System.out.println("cehsi6");
+        System.out.println("分支test");
     }
 }
